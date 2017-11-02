@@ -38,8 +38,7 @@ WORKDIR /home/semilanceata
 
 USER root
 COPY waitonprocess.sh /scripts/
-COPY start.sh /scripts/
-RUN chmod +x /scripts/waitonprocess.sh /scripts/start.sh
+RUN chmod +x /scripts/waitonprocess.sh 
 # Install .NET Framework 4.0
 USER semilanceata
 RUN wine wineboot --init \
