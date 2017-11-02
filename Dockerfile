@@ -48,5 +48,8 @@ RUN wine wineboot --init \
         && /scripts/waitonprocess.sh wineserver \
         && winetricks --unattended dotnet40 dotnet_verifier \
         && /scripts/waitonprocess.sh wineserver
-WORKDIR /home/semilanceata
+
+RUN    rm -rf /var/lib/apt/lists/* \
+    && rm -rf /usr/share/man \
+    && rm -rf /usr/share/doc
 
