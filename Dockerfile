@@ -18,8 +18,8 @@ RUN echo "semilanceata:psilocybe" | chpasswd
 RUN dpkg --add-architecture i386 \
     && apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y curl unzip ca-certificates wget rename procps \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y xauth \
+    && apt-get install -y --no-install-recommends curl unzip ca-certificates wget rename procps \
+    && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y xauth \
     && apt-get install -y wine wine32 \
     && rm -rf /var/lib/apt/lists/*
 
