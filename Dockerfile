@@ -14,10 +14,10 @@ RUN addgroup --system psilocybe \
 
 RUN dpkg --add-architecture i386 \
     && apt-get update \
-    && apt-get upgrade -y \
-    && apt-get install -y curl unzip ca-certificates wget rename procps 
-
-RUN apt-get install -y wine wine32
+    && apt-get upgrade -yq \
+    && apt-get install -yq curl unzip ca-certificates wget rename procps \
+		&& apt-get install -yq xbase-clients \
+		&& apt-get install -yq wine wine32
 
 
 RUN curl -SL "https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks" -o /usr/local/bin/winetricks
