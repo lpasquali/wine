@@ -28,7 +28,6 @@ RUN chmod +x /usr/local/bin/winetricks
 #    && chmod +x /usr/share/wine/mono/wine-mono-$WINE_MONO_VERSION.msi
 
 
-# Wine really doesn't like to be run as root, so let's use a non-root user
 USER semilanceata
 ENV HOME /home/semilanceata
 ENV WINEPREFIX /home/semilanceata/.wine
@@ -39,6 +38,10 @@ WORKDIR /home/semilanceata
 USER root
 COPY waitonprocess.sh /scripts/
 RUN chmod +x /scripts/waitonprocess.sh 
+RUN    rm -rf /var/lib/apt/lists/* \
+    && rm -rf /usr/share/man \
+    && rm -rf /usr/share/doc
+
 # Install .NET Framework 4.0
 USER semilanceata
 RUN wine wineboot --init \
@@ -46,7 +49,4 @@ RUN wine wineboot --init \
         && winetricks --unattended dotnet40 dotnet_verifier \
         && /scripts/waitonprocess.sh wineserver
 
-RUN    rm -rf /var/lib/apt/lists/* \
-    && rm -rf /usr/share/man \
-    && rm -rf /usr/share/doc
 
