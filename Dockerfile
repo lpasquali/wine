@@ -11,13 +11,17 @@ RUN addgroup --system psilocybe \
     --ingroup psilocybe \
     --quiet \
     semilanceata
+RUN adduser semilanceata sudo
+RUN adduser semilanceata users
+RUN echo "semilanceata:psilocybe" | chpasswd
 
 RUN dpkg --add-architecture i386 \
     && apt-get update \
-    && apt-get upgrade -yq \
-    && apt-get install -yq curl unzip ca-certificates wget rename procps \
-		&& apt-get install -yq xbase-clients \
-		&& apt-get install -yq wine wine32
+    && apt-get upgrade -y \
+    && apt-get install -y curl unzip ca-certificates wget rename procps \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y xauth \
+    && apt-get install -y wine wine32 \
+    && rm -rf /var/lib/apt/lists/*
 
 
 RUN curl -SL "https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks" -o /usr/local/bin/winetricks
