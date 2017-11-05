@@ -10,7 +10,6 @@ windows.
 
 ```
 FROM lpasquali/wine:latest
-
 USER semilanceata
 RUN mkdir $HOME/putty
 RUN curl -SL 'https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe' -O $HOME/putty/putty.exe
