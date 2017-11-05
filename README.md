@@ -1,6 +1,6 @@
-### (lpasquali/wine)[https://hub.docker.com/r/lpasquali/wine]
+### [lpasquali/wine](https://hub.docker.com/r/lpasquali/wine)
 
-This Dockerfiles creates an image based on Debian GNU/Linux stable official image (debian:stable-slim)[https://hub.docker.com/\_/debian/]
+This Dockerfiles creates an image based on Debian GNU/Linux stable official image [debian:stable-slim](https://hub.docker.com/_/debian/)
 where is installed stock debian wine and then winetricks and dotnet40 are downloaded from their standard locations. This image should be 
 used to build images bearing Microsoft Windows software running under wine. 
 
