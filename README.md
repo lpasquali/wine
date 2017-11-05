@@ -1,8 +1,12 @@
 ### [lpasquali/wine](https://hub.docker.com/r/lpasquali/wine)
 
-This Dockerfiles creates an image based on Debian GNU/Linux stable official image [debian:stable-slim](https://hub.docker.com/_/debian/)
-where is installed stock debian wine and then winetricks and dotnet40 are downloaded from their standard locations. This image should be 
-used to build images bearing Microsoft Windows software running under wine. 
+This Dockerfile creates an image based on Debian GNU/Linux stable official
+image [debian:stable-slim](https://hub.docker.com/_/debian/) where is
+installed stock debian wine and then winetricks and dotnet40 are downloaded
+from their standard locations. This image should be used to build images
+bearing Microsoft Windows software running under wine. Here I provide
+a n example docker file with [Putty.exe](http://www.putty.org/) ssh client for
+windows.
 
 ```
 FROM lpasquali/wine:latest
