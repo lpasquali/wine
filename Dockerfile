@@ -26,11 +26,6 @@ RUN dpkg --add-architecture i386 \
 
 RUN curl -SL "https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks" -o /usr/local/bin/winetricks
 RUN chmod +x /usr/local/bin/winetricks
-#RUN mkdir -p /usr/share/wine/mono && \
-#    curl -SL 'http://sourceforge.net/projects/wine/files/Wine%20Mono/$WINE_MONO_VERSION/wine-mono-$WINE_MONO_VERSION.msi/download'\
-#    -o /usr/share/wine/mono/wine-mono-$WINE_MONO_VERSION.msi \
-#    && chmod +x /usr/share/wine/mono/wine-mono-$WINE_MONO_VERSION.msi
-
 
 USER semilanceata
 ENV HOME /home/semilanceata
