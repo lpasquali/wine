@@ -24,8 +24,8 @@ RUN dpkg --add-architecture i386 \
     && rm -rf /var/lib/apt/lists/*
 
 
-RUN curl -SL "https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks" -o /usr/local/bin/winetricks
-RUN chmod +x /usr/local/bin/winetricks
+#RUN curl -SL "https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks" -o /usr/local/bin/winetricks
+#RUN chmod +x /usr/local/bin/winetricks
 
 USER semilanceata
 ENV HOME /home/semilanceata
@@ -37,8 +37,7 @@ WORKDIR /home/semilanceata
 USER root
 COPY waitonprocess.sh /scripts/
 RUN chmod +x /scripts/waitonprocess.sh 
-RUN    rm -rf /var/lib/apt/lists/* \
-    && rm -rf /usr/share/man \
+RUN rm -rf /usr/share/man \
     && rm -rf /usr/share/doc
 
 # Install .NET Framework 4.0
@@ -47,5 +46,3 @@ RUN wine wineboot --init \
         && /scripts/waitonprocess.sh wineserver \
         && winetricks --unattended dotnet40 dotnet_verifier \
         && /scripts/waitonprocess.sh wineserver
-
-
